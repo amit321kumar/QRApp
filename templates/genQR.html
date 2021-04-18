@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>First Flask App</title>
+    <style>
+        .btn {
+  background-color: rgba(154,160,185,.05)
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.img-center {
+  display: flex;
+
+  text-align:center;
+
+}
+
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: rgba(154,160,185,.05);
+}
+ .card {
+  padding: 40px;
+  background: #fff;
+  max-width: 700px;
+  border-radius: 20px;
+  margin: 30px auto;
+  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+}
+.card:hover
+{
+padding: 40px;
+  background: #fff;
+  max-width: 700px;
+  border-radius: 20px;
+  margin: 30px auto;
+    box-shadow: 0 5px 10px rgb(35 173 255);
+    transition:all 200ms
+    }
+    .elements
+    {
+    margin-left:75% ;
+    }
+    a:link {
+  text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+<h3>QR Generator App</h3>
+<div class="card">
+<div class="card-columns">
+
+    <label><b>QR code</b></label>
+ <form class="form-inline" action="/genQR">
+<div class="img-center elements">
+<img  src="{{url_for('static', filename=data+'.png')}}" class="center">
+</div>
+</form>
+  </div>
+    <div class="card btn">
+          <button class="btn "><i class="fa fa-download"></i> <a href="{{url_for('static', filename=data+'.png')}}" download="QR">Download QR</button>
+
+    </div>
+</body>
+</html>
