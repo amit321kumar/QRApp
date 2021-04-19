@@ -29,14 +29,12 @@ def scanQR():
         camera = cv2.VideoCapture(0)
         time.sleep(1.000)
         ret, frame = camera.read()
-        # 2
         while ret:
             ret, frame = camera.read()
             frame = read_qrcodes(frame)
             cv2.imshow('QR code reader', frame)
             if cv2.waitKey(1) & 0xFF == 27:
                 break
-        # 3
         camera.release()
         cv2.destroyAllWindows()
         return "Scanned QR Code Successfully..."
