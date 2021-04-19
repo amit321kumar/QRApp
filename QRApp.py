@@ -37,7 +37,7 @@ def scanQR():
                 break
         camera.release()
         cv2.destroyAllWindows()
-        return render_template('scannedQR.html',data=data["Text"])
+        return render_template('QRapp.html',data=data["Text"])
 
 
 def read_qrcodes(frame):
