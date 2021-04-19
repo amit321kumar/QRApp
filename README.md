@@ -7,6 +7,8 @@ pip install opencv-python
 
 pip install pyzbar
 
+pip install flask
+
 
 Navigate to QRApp Directory
 
