@@ -31,13 +31,13 @@ def scanQR():
         ret, frame = camera.read()
         while ret:
             ret, frame = camera.read()
-            frame = read_qrcodes(frame)
-            cv2.imshow('QR code reader', frame)
+            data = read_qrcodes(frame)
+            cv2.imshow('QR code reader/ Press Esc to exit', data["frame"])
             if cv2.waitKey(1) & 0xFF == 27:
                 break
         camera.release()
         cv2.destroyAllWindows()
-        return "Scanned QR Code Successfully..."
+        return render_template('scannedQR.html',data=data["Text"])
 
 
 def read_qrcodes(frame):
@@ -53,7 +53,9 @@ def read_qrcodes(frame):
         cv2.putText(frame, qrcode_info, (x + 6, y - 6), font, 2.0, (255, 255, 255), 1)
         # 3
         with open("code_result.txt", mode='w') as file:
-            file.write("Recognized QRcode:" + qrcode_info)
-    return frame
+            file.write(qrcode_info)
+    with open("code_result.txt", mode='r') as file:
+             text=file.read()
+    return {"frame":frame,"Text":text}
 if __name__=='__main__':
     app.run(debug=True)

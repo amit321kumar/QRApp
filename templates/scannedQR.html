@@ -32,14 +32,22 @@ padding: 40px;
     .elements
     {
     margin-left:5%;
+    vertical-margin:10px;
     }
 </style>
+    <script>
+function goBack() {
+  window.history.back();
+}</script>
 </head>
 <body>
 
 <div class="card">
- <p>scanning ... please wait for 5 second.</p>
-<p> Press Esc to exit.</p>
+ <label  class="elements" for="text"> <h3>Scanned Address:</h3></label>
+  <input type="address" class="form-control elements" name="address" value="{{data}}" id="address">
+
+
+  <button onclick="goBack()" type="submit" class="btn btn-primary elements"> GO Back</button>
 </div>
 </body>
 </html>
