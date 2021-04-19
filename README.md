@@ -1,5 +1,6 @@
 # QRApp
 Install below Libraries by entering below commands:
+
 pip install qrcode[PIL]
 pip install opencv-python
 pip install pyzbar
