@@ -11,11 +11,13 @@ pip install pyzbar
 Navigate to QRApp Directory
 
 run below command to launch the App:
+
 Python QRApp.py
 
 open browser 
 
 type url:
+
 http://localhost:5000/
 
 Hit Enter
