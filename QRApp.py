@@ -6,6 +6,10 @@ import time
 from pyzbar import pyzbar
 import qrcode
 import os
+import urllib.request
+import urllib.parse
+import json
+
 from PIL import  Image
 
 app=Flask(__name__)
@@ -13,6 +17,19 @@ app=Flask(__name__)
 def Home():
     print("Hello Welcome to QR App")
     return render_template('QRapp.html')
+@app.route('/genAdd')
+def genAdd():
+    print('Entering the GenAddress Method')
+    file=open('properties.json')
+    data=json.load(file)
+    #with open("properties.json", mode='r') as file:
+     #        text=file.read()
+    print(data['url']+" : url")
+    url=data['url']
+    req = urllib.request.urlopen(url)
+    address=urllib.parse.parse_qs(urllib.parse.urlparse(req.url).query)['address'][0]
+    return render_template('QRapp.html',data=address)
+
 @app.route('/genQR',methods=['POST'])
 def genQR():
     if request.method=='POST':
